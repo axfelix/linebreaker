@@ -14,7 +14,7 @@ with open(sys.argv[2], "r") as pdftotext_out:
 linebreak_context = re.findall("[^\n]{20}\n[^\n]{20}", pdftotext)
 
 for x in linebreak_context:
-	x_lb = x.replace("\n", r"\1<lb/>\2")
+	x_lb = x.replace("\n", r"\g<1><lb/>\g<2>")
 	x = x.replace("(", "\(")
 	x = x.replace(")", "\)")
 	x = x.replace("[", "\[")
